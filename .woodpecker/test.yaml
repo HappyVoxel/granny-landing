@@ -1,0 +1,17 @@
+# Checks on the shared Woodpecker (https://ci.opscom.io). Runs on every PR and
+# on master; production.yaml waits on it (depends_on) before deploying.
+when:
+  - event: pull_request
+  - event: push
+    branch: master
+  - event: manual
+
+steps:
+  - name: checks
+    image: node:24-alpine
+    commands:
+      - npm install -g pnpm@12.8.1
+      - pnpm install --frozen-lockfile
+      - pnpm lint
+      - pnpm typecheck
+      - pnpm build
