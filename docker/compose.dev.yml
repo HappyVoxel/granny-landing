@@ -1,0 +1,50 @@
+name: granny-landing
+
+services:
+  postgres:
+    container_name: granny-landing-postgres
+    image: postgres:18-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      # Postgres 18+ stores data in a versioned subdir; mount the parent directory.
+      - postgres-data:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready --dbname=postgres --username=postgres
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  redis:
+    container_name: granny-landing-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  mailpit:
+    container_name: granny-landing-mailpit
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  postgres-data:
+  redis-data:
