@@ -13,6 +13,16 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // graphile-migrate loads .gmrc.js as CommonJS.
+  {
+    files: [".gmrc.js"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
+  // Vendored shadcn files; the rule fires on generated code we do not edit.
+  {
+    files: ["components/ui/**", "hooks/**"],
+    rules: { "react-hooks/set-state-in-effect": "off" },
+  },
 ]);
 
 export default eslintConfig;
