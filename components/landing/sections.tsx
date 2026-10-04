@@ -53,9 +53,9 @@ export function Hero() {
           >
             <Image
               src="/app-dark.png"
-              alt="granny's notebook showing today's tasks and their allowed URL surfaces"
-              width={1160}
-              height={1064}
+              alt="granny's notebook showing today's tasks, the streak badge and their allowed URL surfaces"
+              width={1060}
+              height={1000}
               className="h-auto w-full"
               priority
             />
