@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LeatherButton } from "@/components/landing/bits";
+import logo from "@/assets/logo.png";
 
 const REPO = "https://github.com/HappyVoxel/granny";
 
@@ -18,7 +19,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-6 border-x border-border px-6 md:px-10 xl:max-w-7xl">
         <a href="#top" className="flex items-center gap-2.5">
           <Image
-            src="/logo.png"
+            src={logo}
             alt="granny"
             width={28}
             height={28}
@@ -62,7 +63,7 @@ export function SiteFooter() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 md:grid-cols-3 md:px-10 xl:max-w-7xl">
         <div>
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="" width={24} height={24} className="rounded-[6px]" />
+            <Image src={logo} alt="" width={24} height={24} className="rounded-[6px]" />
             <span className="font-heading text-base font-semibold">granny</span>
           </div>
           <p className="mt-3 max-w-[36ch] text-[14.5px] leading-relaxed text-muted-foreground">

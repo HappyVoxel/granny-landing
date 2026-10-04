@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import ogImage from "@/assets/og.png";
 
 const body = Source_Serif_4({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     title: "granny - work first, play after",
     description:
       "A strict macOS task enforcer. Free and open source, native Swift, no account.",
-    images: [{ url: "/og.png", width: 1280, height: 640 }],
+    images: [{ url: ogImage.src, width: 1280, height: 640 }],
     type: "website",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: "granny - work first, play after",
     description:
       "A strict macOS task enforcer. Free and open source, native Swift, no account.",
-    images: ["/og.png"],
+    images: [ogImage.src],
   },
 };
 

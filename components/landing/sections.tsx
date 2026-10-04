@@ -17,6 +17,8 @@ import {
   TwoTone,
 } from "@/components/landing/bits";
 import { CopyCommand } from "@/components/landing/copy-command";
+import appShot from "@/assets/app-dark.png";
+import settingsShot from "@/assets/settings-dark.png";
 
 const REPO = "https://github.com/HappyVoxel/granny";
 const RELEASES = `${REPO}/releases/latest`;
@@ -52,7 +54,7 @@ export function Hero() {
             className="lg:translate-y-2"
           >
             <Image
-              src="/app-dark.png"
+              src={appShot}
               alt="granny's notebook showing today's tasks, the streak badge and their allowed URL surfaces"
               width={1060}
               height={1000}
@@ -236,7 +238,7 @@ export function Layers() {
           caption="Settings: keys, classifier, tracing, language, watchlists"
         >
           <Image
-            src="/settings-dark.png"
+            src={settingsShot}
             alt="granny's Settings window: keys, classifier, tracing, language and watchlists"
             width={1120}
             height={1700}
