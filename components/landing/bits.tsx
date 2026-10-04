@@ -69,7 +69,7 @@ export function Section({
     >
       <div
         {...(skipReveal ? {} : { "data-reveal-group": true })}
-        className="mx-auto w-full max-w-6xl border-x border-border px-6 py-16 md:px-10 md:py-20 xl:max-w-7xl"
+        className="mx-auto w-full max-w-6xl border-x border-border px-6 py-16 md:px-10 md:py-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]"
       >
         {(eyebrow || title) && (
           <header className="mb-10 max-w-2xl">

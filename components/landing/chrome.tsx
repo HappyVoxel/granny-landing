@@ -32,7 +32,7 @@ const NAV_FOOTER = [
 export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-6 border-x border-border px-6 md:px-10 xl:max-w-7xl">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-6 border-x border-border px-6 md:px-10 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
         <a href="#top" className="flex items-center gap-2.5">
           <Image
             src={logo}
@@ -77,7 +77,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-border bg-card/60">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 md:grid-cols-3 md:px-10 xl:max-w-7xl">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 md:grid-cols-3 md:px-10 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
         <div>
           <div className="flex items-center gap-2.5">
             <Image src={logo} alt="" width={24} height={24} className="rounded-[6px]" />
@@ -153,7 +153,7 @@ export function SiteFooter() {
         </span>
       </div>
       <div className="border-t border-border">
-        <p className="mx-auto w-full max-w-6xl px-6 py-5 font-mono xl:max-w-7xl text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-10">
+        <p className="mx-auto w-full max-w-6xl px-6 py-5 font-mono xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem] text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-10">
           Free and open source · AGPL-3.0 · Built natively for macOS
         </p>
       </div>

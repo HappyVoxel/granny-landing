@@ -26,7 +26,7 @@ const RELEASES = `${REPO}/releases/latest`;
 export function Hero() {
   return (
     <section id="top" className="border-b border-border">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 pt-16 pb-14 md:px-10 md:pt-24 xl:max-w-7xl">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 pt-16 pb-14 md:px-10 md:pt-24 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
         <div data-hero className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <Eyebrow className="mb-5">macOS 14+ · native Swift · AGPL-3.0</Eyebrow>
@@ -90,7 +90,7 @@ export function Story() {
 export function SpecStrip() {
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-10 md:px-10 xl:max-w-7xl">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-10 md:px-10 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
         <Spec
           items={[
             { value: "3 tiers", label: "destiny", note: "rules, classifier, model" },
@@ -162,10 +162,10 @@ export function DayCycle() {
 
 export function Difference() {
   const pairs = [
-    ["A full YouTube video", "YouTube Shorts"],
-    ["Focus music on YouTube", "A movie on YouTube"],
-    ["A tutorial", "A vlog"],
-  ];
+    { allowed: "A full YouTube video", judged: "YouTube Shorts", verdict: "blocked" },
+    { allowed: "Focus music on YouTube", judged: "A movie on YouTube", verdict: "negotiable" },
+    { allowed: "A tutorial", judged: "A vlog", verdict: "negotiable" },
+  ] as const;
   return (
     <Section
       id="difference"
@@ -176,9 +176,9 @@ export function Difference() {
       tone="raised"
     >
       <div className="border-t border-border">
-        {pairs.map(([allowed, blocked]) => (
+        {pairs.map(({ allowed, judged, verdict }) => (
           <div
-            key={blocked}
+            key={judged}
             className="grid grid-cols-1 gap-2 border-b border-border py-5 md:grid-cols-2 md:gap-8"
           >
             <p className="flex items-baseline gap-3 text-[15.5px] text-foreground">
@@ -188,16 +188,21 @@ export function Difference() {
               {allowed}
             </p>
             <p className="flex items-baseline gap-3 text-[15.5px] text-muted-foreground">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-vermilion">
-                blocked
+              <span
+                className={`font-mono text-[11px] font-semibold uppercase tracking-[0.14em] ${
+                  verdict === "blocked" ? "text-vermilion" : "text-brass"
+                }`}
+              >
+                {verdict}
               </span>
-              {blocked}
+              {judged}
             </p>
           </div>
         ))}
       </div>
       <p className="mt-6 max-w-[64ch] text-[15px] leading-relaxed text-muted-foreground">
-        Tasks carry their own allowed surfaces, so work can open a blocked site.
+        Tasks carry their own allowed surfaces, so work can open a blocked site. A doubtful
+        page is asked about, not shut.
       </p>
     </Section>
   );
@@ -450,7 +455,7 @@ export function Faq() {
 export function ClosingCta() {
   return (
     <section className="border-t border-border bg-leather text-parchment">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-20 md:px-10 xl:max-w-7xl">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-20 md:px-10 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <TwoTone
