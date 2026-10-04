@@ -24,7 +24,7 @@ const RELEASES = `${REPO}/releases/latest`;
 export function Hero() {
   return (
     <section id="top" className="border-b border-border">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 pt-16 pb-14 md:px-10 md:pt-24">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 pt-16 pb-14 md:px-10 md:pt-24 xl:max-w-7xl">
         <div data-hero className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <Eyebrow className="mb-5">macOS 14+ · native Swift · AGPL-3.0</Eyebrow>
@@ -88,7 +88,7 @@ export function Story() {
 export function SpecStrip() {
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-10 md:px-10">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-10 md:px-10 xl:max-w-7xl">
         <Spec
           items={[
             { value: "3 tiers", label: "destiny", note: "rules, classifier, model" },
@@ -448,7 +448,7 @@ export function Faq() {
 export function ClosingCta() {
   return (
     <section className="border-t border-border bg-leather text-parchment">
-      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-20 md:px-10">
+      <div className="mx-auto w-full max-w-6xl border-x border-border px-6 py-20 md:px-10 xl:max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <TwoTone
