@@ -251,7 +251,7 @@ export default function InstallExtension() {
                     alt="The granny warning on a YouTube video in Safari"
                     caption="The warning, in Safari"
                     width={2872}
-                    height={1946}
+                    height={2070}
                   />
                 </Step>
               </ol>
