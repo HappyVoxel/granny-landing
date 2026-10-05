@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { SiteFooter, SiteHeader } from "@/components/landing/chrome";
-import { Ledger, LeatherButton, OutlineButton, Section, StitchPanel } from "@/components/landing/bits";
+import { Ledger, LeatherButton, OutlineButton, Section, StitchFrame, StitchPanel } from "@/components/landing/bits";
 
 const REPO = "https://github.com/HappyVoxel/granny";
 
@@ -19,12 +20,43 @@ function Code({ children }: { children: ReactNode }) {
   );
 }
 
-function Step({ n, children }: { n: number; children: ReactNode }) {
+function Step({
+  n,
+  text,
+  children,
+}: {
+  n: number;
+  text: ReactNode;
+  children?: ReactNode;
+}) {
   return (
     <li className="flex gap-4">
       <span className="font-heading text-lg font-semibold text-brass">{n}.</span>
-      <span className="max-w-[62ch] text-[15.5px] leading-relaxed text-foreground/90">{children}</span>
+      <div className="min-w-0 flex-1 space-y-5">
+        <p className="max-w-[62ch] text-[15.5px] leading-relaxed text-foreground/90">{text}</p>
+        {children}
+      </div>
     </li>
+  );
+}
+
+function Shot({
+  src,
+  alt,
+  caption,
+  width,
+  height,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}) {
+  return (
+    <StitchFrame caption={caption}>
+      <Image src={src} alt={alt} width={width} height={height} className="h-auto w-full" />
+    </StitchFrame>
   );
 }
 
@@ -41,60 +73,191 @@ export default function InstallExtension() {
           second="The part that reads the page."
           lede="granny blocks the obvious at the network layer with no extension at all. The extension is what judges content: a movie on YouTube, an endless feed, a LinkedIn scroll. One folder, two toggles, five minutes."
         >
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
-            <div className="space-y-12">
-              <div>
-                <h3 className="font-heading text-xl font-semibold">Chrome, Brave, Edge, Arc</h3>
-                <ol className="mt-5 space-y-5">
-                  <Step n={1}>
-                    In the granny menu choose <em>Install browser extension…</em> then{" "}
-                    <em>Open browser settings</em>. granny copies the extension to{" "}
-                    <Code>~/Applications/granny-extension</Code> and reveals it in Finder.
-                  </Step>
-                  <Step n={2}>
-                    In <Code>chrome://extensions</Code>, turn on <em>Developer mode</em>.
-                  </Step>
-                  <Step n={3}>
-                    Press <em>Load unpacked</em> and pick{" "}
-                    <Code>~/Applications/granny-extension</Code>.
-                  </Step>
-                  <Step n={4}>
-                    Pin granny to the toolbar. Open a YouTube video: the warning offers{" "}
-                    <em>Close the tab</em> and <em>Continue</em>, both immediate.
-                  </Step>
-                </ol>
-              </div>
-
-              <div>
-                <h3 className="font-heading text-xl font-semibold">Safari</h3>
-                <p className="mt-3 max-w-[62ch] text-[15.5px] leading-relaxed text-foreground/90">
-                  Safari cannot sideload extensions - Apple&rsquo;s rule, not granny&rsquo;s.
-                  The Safari build needs the source app signed with your Apple Development
-                  team (a free Apple ID is enough).
-                </p>
-                <ol className="mt-5 space-y-5">
-                  <Step n={1}>
-                    Run <Code>scripts/install-extension.sh</Code> from the source checkout;
-                    it builds and installs the signed app.
-                  </Step>
-                  <Step n={2}>
-                    Run the app once, then open <em>Safari &gt; Settings &gt; Extensions</em>{" "}
-                    and tick <em>granny</em>.
-                  </Step>
-                  <Step n={3}>
-                    Grant website access: <em>Always Allow on Every Website</em>. The grant
-                    and the toggle are one-time.
-                  </Step>
-                </ol>
-              </div>
-
-              <p className="max-w-[62ch] text-[15px] leading-relaxed text-muted-foreground">
-                Not on the Chrome Web Store or the App Store yet. This is the pilot path:
-                when the extension ships on the stores, both browsers will be one click.
-              </p>
+          <div className="max-w-4xl space-y-14">
+            <div>
+              <h3 className="font-heading text-xl font-semibold">Chrome, Brave, Edge, Arc</h3>
+              <ol className="mt-6 space-y-10">
+                <Step
+                  n={1}
+                  text={
+                    <>
+                      In the granny menu choose <em>Install browser extension…</em> then{" "}
+                      <em>Open browser settings</em>. granny copies the extension to{" "}
+                      <Code>~/Applications/granny-extension</Code> and reveals it in Finder.
+                    </>
+                  }
+                />
+                <Step
+                  n={2}
+                  text={
+                    <>
+                      Open <Code>chrome://extensions</Code>. <em>Developer mode</em> is off
+                      by default - it is the switch in the top-right corner.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/chrome-extensions-off.png"
+                    alt="chrome://extensions with Developer mode off"
+                    caption="Developer mode starts off"
+                    width={1440}
+                    height={900}
+                  />
+                </Step>
+                <Step
+                  n={3}
+                  text={
+                    <>
+                      Turn on <em>Developer mode</em>.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/chrome-dev-mode.png"
+                    alt="chrome://extensions with Developer mode on and the Load unpacked button visible"
+                    caption="Developer mode on"
+                    width={1440}
+                    height={900}
+                  />
+                </Step>
+                <Step
+                  n={4}
+                  text={
+                    <>
+                      Click <em>Load unpacked</em> and pick{" "}
+                      <Code>~/Applications/granny-extension</Code>.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/chrome-picker.png"
+                    alt="The folder picker with granny-extension selected"
+                    caption="Pick the granny-extension folder"
+                    width={1844}
+                    height={952}
+                  />
+                </Step>
+                <Step
+                  n={5}
+                  text={
+                    <>
+                      granny appears in the list, switched on. Every navigation goes through
+                      granny; work first, play after.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/chrome-loaded.png"
+                    alt="The extensions list showing granny loaded and enabled"
+                    caption="Loaded and on"
+                    width={1440}
+                    height={900}
+                  />
+                </Step>
+                <Step
+                  n={6}
+                  text={
+                    <>
+                      Open the extensions menu - the puzzle piece next to the address bar.
+                      granny is there; pin it if you want the face on your toolbar.
+                    </>
+                  }
+                />
+                <Step
+                  n={7}
+                  text={
+                    <>
+                      Open a YouTube video. The warning offers <em>Close the tab</em> and{" "}
+                      <em>Continue</em>, both immediate - and <em>Go back</em> to the feed.
+                      Shorts stay a hard block.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/chrome-warn.png"
+                    alt="The granny warning on a YouTube video with Close the tab, Continue and Go back"
+                    caption="A movie on YouTube gets the negotiable warning"
+                    width={1440}
+                    height={900}
+                  />
+                </Step>
+              </ol>
             </div>
 
-            <StitchPanel className="lg:sticky lg:top-24">
+            <div>
+              <h3 className="font-heading text-xl font-semibold">Safari</h3>
+              <p className="mt-3 max-w-[62ch] text-[15.5px] leading-relaxed text-foreground/90">
+                Safari cannot sideload extensions - Apple&rsquo;s rule, not granny&rsquo;s.
+                The Safari build needs the source app signed with your Apple Development
+                team (a free Apple ID is enough).
+              </p>
+              <ol className="mt-6 space-y-10">
+                <Step
+                  n={1}
+                  text={
+                    <>
+                      Run <Code>scripts/install-extension.sh</Code> from the source
+                      checkout; it builds the Safari app signed with your team and installs
+                      it.
+                    </>
+                  }
+                />
+                <Step
+                  n={2}
+                  text={
+                    <>
+                      Run <em>granny for Safari</em> once, then open{" "}
+                      <em>Safari &gt; Settings &gt; Extensions</em> and tick <em>granny</em>.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/safari-extensions.png"
+                    alt="Safari Settings, Extensions pane, with granny ticked"
+                    caption="Safari > Settings > Extensions"
+                    width={1896}
+                    height={1424}
+                  />
+                </Step>
+                <Step
+                  n={3}
+                  text={
+                    <>
+                      When Safari asks for website access, choose{" "}
+                      <em>Always Allow on Every Website</em>. It lives later in{" "}
+                      <em>Settings &gt; Websites &gt; granny</em>: <em>For other websites</em>,{" "}
+                      <em>Allow</em>.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/safari-websites.png"
+                    alt="The For other websites dropdown set to Allow in Safari's Websites settings"
+                    caption="For other websites: Allow"
+                    width={1140}
+                    height={190}
+                  />
+                </Step>
+                <Step
+                  n={4}
+                  text={
+                    <>
+                      Open a YouTube video: the same warning, same two immediate answers.
+                    </>
+                  }
+                >
+                  <Shot
+                    src="/guide/safari-warn.png"
+                    alt="The granny warning on a YouTube video in Safari"
+                    caption="The warning, in Safari"
+                    width={2872}
+                    height={1946}
+                  />
+                </Step>
+              </ol>
+            </div>
+
+            <StitchPanel>
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brass">
                 What the extension adds
               </p>
@@ -142,6 +305,11 @@ export default function InstallExtension() {
                 ]}
               />
             </StitchPanel>
+
+            <p className="max-w-[62ch] text-[15.5px] leading-relaxed text-muted-foreground">
+              Not on the Chrome Web Store or the App Store yet. This is the pilot path:
+              when the extension ships on the stores, both browsers will be one click.
+            </p>
           </div>
         </Section>
 
