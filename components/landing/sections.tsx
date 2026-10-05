@@ -21,7 +21,7 @@ import appShot from "@/assets/app-dark.png";
 import settingsShot from "@/assets/settings-dark.png";
 
 const REPO = "https://github.com/HappyVoxel/granny";
-const RELEASES = `${REPO}/releases/latest`;
+const DOWNLOAD_DMG = `${REPO}/releases/latest/download/granny-macos.dmg`;
 
 export function Hero() {
   return (
@@ -428,7 +428,7 @@ export function Install() {
             Not notarised yet - right-click Open once if macOS hesitates.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <LeatherButton href={RELEASES} external>
+            <LeatherButton href={DOWNLOAD_DMG} external>
               Download for Mac
             </LeatherButton>
             <OutlineButton href="/blog/install-extension/">
@@ -526,7 +526,7 @@ export function ClosingCta() {
               className="text-3xl sm:text-4xl [&>span:first-child]:text-parchment [&>span:last-child]:text-parchment/60"
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <LeatherButton href={RELEASES} external className="bg-brass text-walnut hover:bg-brass-dark">
+              <LeatherButton href={DOWNLOAD_DMG} external className="bg-brass text-walnut hover:bg-brass-dark">
                 Download for Mac
               </LeatherButton>
               <OutlineButton
