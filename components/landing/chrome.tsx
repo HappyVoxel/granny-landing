@@ -29,11 +29,11 @@ const NAV_FOOTER = [
   { href: "#faq", label: "FAQ" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ base = "" }: { base?: string }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-6 border-x border-border px-6 md:px-10 xl:max-w-[84rem] 2xl:max-w-[96rem] min-[1800px]:max-w-[104rem]">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href={`${base}#top`} className="flex items-center gap-2.5">
           <Image
             src={logo}
             alt="granny"
@@ -48,7 +48,7 @@ export function SiteHeader() {
           {NAV_HEADER.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${base}${item.href}`}
               className="relative text-[14.5px] text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-brass after:transition-all after:duration-200 hover:text-foreground hover:after:w-full"
             >
               {item.label}
@@ -65,7 +65,7 @@ export function SiteHeader() {
           >
             <GithubMark />
           </a>
-          <LeatherButton href="#install" className="h-9 px-4 text-[14px]">
+          <LeatherButton href={`${base}#install`} className="h-9 px-4 text-[14px]">
             Install granny
           </LeatherButton>
         </div>
@@ -74,7 +74,7 @@ export function SiteHeader() {
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ base = "" }: { base?: string }) {
   return (
     <footer className="mt-auto border-t border-border bg-card/60">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 md:grid-cols-3 md:px-10 xl:max-w-[84rem] 2xl:max-w-[96rem] min-[1800px]:max-w-[104rem]">
@@ -94,7 +94,7 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-muted-foreground">
             {NAV_FOOTER.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="transition-colors hover:text-foreground">
+                <a href={`${base}${item.href}`} className="transition-colors hover:text-foreground">
                   {item.label}
                 </a>
               </li>
@@ -119,6 +119,14 @@ export function SiteFooter() {
                 className="transition-colors hover:text-foreground"
               >
                 Releases
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog/install-extension"
+                className="transition-colors hover:text-foreground"
+              >
+                Extension guide
               </a>
             </li>
             <li>
