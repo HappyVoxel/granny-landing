@@ -162,9 +162,9 @@ export function DayCycle() {
 
 export function Difference() {
   const pairs = [
-    { allowed: "A full YouTube video", judged: "YouTube Shorts", verdict: "blocked" },
-    { allowed: "Focus music on YouTube", judged: "A movie on YouTube", verdict: "negotiable" },
-    { allowed: "A tutorial", judged: "A vlog", verdict: "negotiable" },
+    { allowed: "A full YouTube video", judged: "YouTube Shorts (extension)", verdict: "blocked" },
+    { allowed: "Focus music on YouTube", judged: "A movie on YouTube (extension)", verdict: "negotiable" },
+    { allowed: "A tutorial", judged: "A vlog (extension)", verdict: "negotiable" },
   ] as const;
   return (
     <Section
@@ -203,6 +203,61 @@ export function Difference() {
       <p className="mt-6 max-w-[64ch] text-[15px] leading-relaxed text-muted-foreground">
         Tasks carry their own allowed surfaces, so work can open a blocked site. A doubtful
         page is asked about, not shut.
+      </p>
+    </Section>
+  );
+}
+
+function SafariMark() {
+  return (
+    <svg viewBox="0 0 24 24" width="52" height="52" aria-hidden>
+      <defs>
+        <linearGradient id="safari-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#2AC9FA" />
+          <stop offset="100%" stopColor="#1B6EF3" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="11" fill="url(#safari-grad)" />
+      <circle cx="12" cy="12" r="8.9" fill="none" stroke="#fff" strokeWidth="1.2" />
+      <path d="M15.96 8.04 11.01 11.01 12.99 12.99Z" fill="#FF3B30" />
+      <path d="M8.04 15.96 11.01 11.01 12.99 12.99Z" fill="#fff" />
+    </svg>
+  );
+}
+
+function ChromeMark() {
+  return (
+    <svg viewBox="0 0 24 24" width="52" height="52" aria-hidden>
+      <path d="M2.474 6.5A11 11 0 0 1 21.526 6.5L12 12Z" fill="#EA4335" />
+      <path d="M2.474 6.5A11 11 0 0 0 12 23L12 12Z" fill="#FBBC05" />
+      <path d="M21.526 6.5A11 11 0 0 1 12 23L12 12Z" fill="#34A853" />
+      <circle cx="12" cy="12" r="5.5" fill="#fff" />
+      <circle cx="12" cy="12" r="4.3" fill="#4285F4" />
+    </svg>
+  );
+}
+
+export function Browsers() {
+  const browsers = [
+    { name: "Safari", mark: <SafariMark /> },
+    { name: "Google Chrome", mark: <ChromeMark /> },
+  ];
+  return (
+    <Section id="browsers" eyebrow="Current supported browsers" tone="raised">
+      <ul className="flex items-start justify-center gap-16 pt-2 sm:gap-24">
+        {browsers.map((browser) => (
+          <li key={browser.name} className="group flex flex-col items-center gap-4">
+            <span className="opacity-45 grayscale transition-all duration-200 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0">
+              {browser.mark}
+            </span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground transition-colors group-hover:text-foreground">
+              {browser.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+        More are on the way.
       </p>
     </Section>
   );
@@ -262,7 +317,6 @@ export function Honesty() {
       eyebrow="04 · No pretending"
       title="She is honest about her limits."
       second="That is the point."
-      tone="raised"
     >
       <Ledger
         rows={[
@@ -290,7 +344,13 @@ export function Honesty() {
 
 export function Privacy() {
   return (
-    <Section id="privacy" eyebrow="05 · BYOK" title="Your keys. Your machine." second="No account.">
+    <Section
+      id="privacy"
+      eyebrow="05 · BYOK"
+      title="Your keys. Your machine."
+      second="No account."
+      tone="raised"
+    >
       <div className="grid gap-10 md:grid-cols-2">
         <Ledger
           className="mt-0"
@@ -354,7 +414,6 @@ export function Install() {
       eyebrow="06 · Install"
       title="Install it."
       second="She will take it from there."
-      tone="raised"
     >
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div>

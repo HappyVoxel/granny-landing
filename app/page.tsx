@@ -1,6 +1,7 @@
 import { SiteFooter, SiteHeader } from "@/components/landing/chrome";
 import { Motion } from "@/components/landing/motion";
 import {
+  Browsers,
   ClosingCta,
   DayCycle,
   Difference,
@@ -27,6 +28,7 @@ export default function Home() {
             <DayCycle />
             <Difference />
             <Layers />
+            <Browsers />
             <Honesty />
             <Privacy />
             <Install />
