@@ -431,7 +431,7 @@ export function Install() {
             <LeatherButton href={RELEASES} external>
               Download for Mac
             </LeatherButton>
-            <OutlineButton href="/blog/install-extension">
+            <OutlineButton href="/blog/install-extension/">
               Extension guide
             </OutlineButton>
             <OutlineButton href={`${REPO}/blob/master/docs/INSTALL.md`} external>

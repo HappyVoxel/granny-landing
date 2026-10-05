@@ -123,7 +123,7 @@ export function SiteFooter({ base = "" }: { base?: string }) {
             </li>
             <li>
               <a
-                href="/blog/install-extension"
+                href="/blog/install-extension/"
                 className="transition-colors hover:text-foreground"
               >
                 Extension guide
