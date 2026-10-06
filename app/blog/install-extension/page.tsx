@@ -167,9 +167,10 @@ export default function InstallExtension() {
                   n={7}
                   text={
                     <>
-                      Open a YouTube video. The warning offers <em>Close the tab</em> and{" "}
-                      <em>Continue</em>, both immediate - and <em>Go back</em> to the feed.
-                      Shorts stay a hard block.
+                      Open a YouTube video. The warning offers <em>Close the tab</em>{" "}
+                      (red), <em>Continue</em> (yellow), <em>Don&rsquo;t warn for this
+                      domain</em> (green - silence that site for the rest of the day),
+                      and a small back arrow. Shorts stay a hard block.
                     </>
                   }
                 >
@@ -242,7 +243,7 @@ export default function InstallExtension() {
                   n={4}
                   text={
                     <>
-                      Open a YouTube video: the same warning, same two immediate answers.
+                      Open a YouTube video: the same warning, the same choices.
                     </>
                   }
                 >
@@ -250,8 +251,8 @@ export default function InstallExtension() {
                     src="/guide/safari-warn.png"
                     alt="The granny warning on a YouTube video in Safari"
                     caption="The warning, in Safari"
-                    width={2872}
-                    height={2070}
+                    width={2648}
+                    height={1846}
                   />
                 </Step>
               </ol>
@@ -269,8 +270,10 @@ export default function InstallExtension() {
                     children: (
                       <>
                         A movie or vlog on YouTube gets a negotiable warning -{" "}
-                        <em>Close the tab</em> or <em>Continue</em>. Feeds get the same.
-                        Shorts stay a hard block.
+                        <em>Close the tab</em>, <em>Continue</em>, or{" "}
+                        <em>Don&rsquo;t warn for this domain</em> (silence that site
+                        until the day is over). Feeds get the same. Shorts stay a hard
+                        block.
                       </>
                     ),
                   },
