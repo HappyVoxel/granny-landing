@@ -169,7 +169,7 @@ export function SiteFooter({ base = "" }: { base?: string }) {
               href="https://happyvoxel.com"
               target="_blank"
               rel="noreferrer"
-              className="text-foreground/75 transition-colors hover:text-brass"
+              className="text-foreground/75 underline-offset-4 transition-colors hover:text-brass hover:underline"
             >
               HappyVoxel
             </a>
