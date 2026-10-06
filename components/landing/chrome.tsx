@@ -161,9 +161,20 @@ export function SiteFooter({ base = "" }: { base?: string }) {
         </span>
       </div>
       <div className="border-t border-border">
-        <p className="mx-auto w-full max-w-6xl px-6 py-5 font-mono xl:max-w-[84rem] 2xl:max-w-[96rem] min-[1800px]:max-w-[104rem] text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-10">
-          Free and open source · AGPL-3.0 · Built natively for macOS
-        </p>
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground md:px-10 xl:max-w-7xl 2xl:max-w-[90rem] min-[1800px]:max-w-[96rem]">
+          <p>Free and open source · AGPL-3.0 · Built natively for macOS</p>
+          <p>
+            backed by{" "}
+            <a
+              href="https://happyvoxel.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground/75 transition-colors hover:text-brass"
+            >
+              HappyVoxel
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
