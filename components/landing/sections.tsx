@@ -162,7 +162,7 @@ export function DayCycle() {
 
 export function Difference() {
   const pairs = [
-    { allowed: "A full YouTube video", judged: "YouTube Shorts (extension)", verdict: "blocked" },
+    { allowed: "A full YouTube video", judged: "YouTube Shorts", verdict: "blocked" },
     { allowed: "Focus music on YouTube", judged: "A movie on YouTube (extension)", verdict: "negotiable" },
     { allowed: "A tutorial", judged: "A vlog (extension)", verdict: "negotiable" },
   ] as const;
