@@ -182,7 +182,7 @@ export function Difference() {
             className="grid grid-cols-1 gap-2 border-b border-border py-5 md:grid-cols-2 md:gap-8"
           >
             <p className="flex items-baseline gap-3 text-[15.5px] text-foreground">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-brass">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-allowed">
                 allowed
               </span>
               {allowed}

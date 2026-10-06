@@ -48,6 +48,7 @@
   --color-brass-dark: var(--brass-dark);
   --color-walnut: var(--walnut);
   --color-vermilion: var(--vermilion);
+  --color-allowed: var(--allowed);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -68,6 +69,7 @@
   --brass-dark: #b8894a;
   --walnut: #2a1a12;
   --vermilion: #e0613f;
+  --allowed: #7fb069;
 
   --background: #201208;
   --foreground: var(--bone);
