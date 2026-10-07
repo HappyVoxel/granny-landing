@@ -1,0 +1,20 @@
+# granny
+
+> A strict macOS task enforcer. Work first, play after: she asks for the day's
+> list, blocks the entertainment while it is open, checks your claims, and
+> unlocks the fun only when the list is done. Native Swift, free and open source
+> (AGPL-3.0).
+
+Site: https://granny.happyvoxel.com
+Source: https://github.com/HappyVoxel/granny
+
+## Guides
+
+- [Install the browser extension](https://granny.happyvoxel.com/blog/install-extension.md): the guide as markdown, for reading or for handing to an agent.
+- [Skill: granny-extension](https://granny.happyvoxel.com/skills/granny-extension/SKILL.md): agent-ready install instructions with the exact paths and the consent toggles a human must press.
+
+## Install
+
+- Homebrew: `brew tap happyvoxel/tap && brew install --cask granny`
+- Releases: https://github.com/HappyVoxel/granny/releases/latest
+- Full install guide: https://github.com/HappyVoxel/granny/blob/master/docs/INSTALL.md

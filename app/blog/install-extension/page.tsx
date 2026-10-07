@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { SiteFooter, SiteHeader } from "@/components/landing/chrome";
 import { Ledger, LeatherButton, OutlineButton, Section, StitchFrame, StitchPanel } from "@/components/landing/bits";
+import { CopyForAgent } from "@/components/landing/copy-for-agent";
 
 const REPO = "https://github.com/HappyVoxel/granny";
 
@@ -73,6 +74,9 @@ export default function InstallExtension() {
           second="The part that reads the page."
           lede="granny blocks the obvious at the network layer with no extension at all. The extension is what judges content: a movie on YouTube, an endless feed, a LinkedIn scroll. One folder, two toggles, five minutes."
         >
+          <div className="mb-10">
+            <CopyForAgent />
+          </div>
           <div className="max-w-4xl space-y-14">
             <div>
               <h3 className="font-heading text-xl font-semibold">Chrome, Brave, Edge, Arc</h3>

@@ -467,6 +467,53 @@ export function Install() {
   );
 }
 
+export function Blog() {
+  const posts = [
+    {
+      href: "/blog/install-extension/",
+      date: "2026-10-04",
+      tag: "Guide",
+      title: "Install the browser extension",
+      blurb:
+        "One folder, two toggles, five minutes. Read it - or hand the whole page to your agent.",
+    },
+  ];
+  return (
+    <Section
+      id="blog"
+      eyebrow="07 · Blog"
+      title="Field notes."
+      second="Read it, or hand it to an agent."
+      tone="raised"
+    >
+      <div className="border-t border-border">
+        {posts.map((post) => (
+          <a
+            key={post.href}
+            href={post.href}
+            className="group grid gap-2 border-b border-border py-6 md:grid-cols-[190px_1fr_auto] md:items-baseline md:gap-8"
+          >
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              {post.date} · {post.tag}
+            </span>
+            <span>
+              <span className="font-heading text-xl font-semibold text-foreground transition-colors group-hover:text-brass">
+                {post.title}
+              </span>
+              <span className="mt-1 block max-w-[62ch] text-[15px] leading-relaxed text-muted-foreground">
+                {post.blurb}
+              </span>
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground transition-colors group-hover:text-brass md:text-right">
+              Read &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 export function Faq() {
   const items = [
     {
@@ -495,7 +542,7 @@ export function Faq() {
     },
   ];
   return (
-    <Section id="faq" eyebrow="07 · Questions" title="Asked, answered." second="No marketing voice.">
+    <Section id="faq" eyebrow="08 · Questions" title="Asked, answered." second="No marketing voice.">
       <Accordion className="border-t border-border">
         {items.map((item) => (
           <AccordionItem key={item.q} className="border-b border-border">

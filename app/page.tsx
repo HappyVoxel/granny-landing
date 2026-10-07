@@ -1,6 +1,7 @@
 import { SiteFooter, SiteHeader } from "@/components/landing/chrome";
 import { Motion } from "@/components/landing/motion";
 import {
+  Blog,
   Browsers,
   ClosingCta,
   DayCycle,
@@ -32,6 +33,7 @@ export default function Home() {
             <Honesty />
             <Privacy />
             <Install />
+            <Blog />
             <Faq />
             <ClosingCta />
           </main>

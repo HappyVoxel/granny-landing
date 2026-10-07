@@ -26,6 +26,7 @@ const NAV_FOOTER = [
   { href: "#layers", label: "Four layers" },
   { href: "#honesty", label: "Honesty" },
   { href: "#install", label: "Install" },
+  { href: "#blog", label: "Blog" },
   { href: "#faq", label: "FAQ" },
 ];
 
