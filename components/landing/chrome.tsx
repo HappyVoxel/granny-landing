@@ -67,7 +67,7 @@ export function SiteHeader({ base = "" }: { base?: string }) {
             <GithubMark />
           </a>
           <LeatherButton href={`${base}#install`} className="h-9 px-4 text-[14px]">
-            Install granny
+            Install
           </LeatherButton>
         </div>
       </div>
