@@ -26,6 +26,8 @@
     "@base-ui/react": "^1.8.0",
     "@better-auth/api-key": "^1.7.7",
     "@better-fetch/fetch": "^1.3.2",
+    "@fastbackr/core": "0.0.4",
+    "@fastbackr/react": "0.0.4",
     "@gsap/react": "^2.1.2",
     "@shadcn/react": "^0.3.1",
     "ai": "^7.0.126",

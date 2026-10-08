@@ -181,6 +181,12 @@ importers:
       '@better-fetch/fetch':
         specifier: ^1.3.2
         version: 1.3.2
+      '@fastbackr/core':
+        specifier: 0.0.4
+        version: 0.0.4
+      '@fastbackr/react':
+        specifier: 0.0.4
+        version: 0.0.4(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.15.0)(react@19.2.8)
@@ -649,6 +655,17 @@ packages:
   '@eslint/plugin-kit@0.4.1':
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fastbackr/core@0.0.4':
+    resolution: {integrity: sha512-Is6JGeYblPiHJt2yNFr7XjLEr8y0gv5J99JS50BL2ABPcQcp4pZ/gGEpUnCXMlWUWeVfzKk2zKFdRRuycRAZGA==}
+    engines: {node: '>=20'}
+
+  '@fastbackr/react@0.0.4':
+    resolution: {integrity: sha512-U1G7qNoWczXaCn9Z5mhazx7h0Cqe8qTaRGWKuFHFCu1n97Tla4BaDE3BT+DM0c+iTgOUuvxv5ljTpVqzfpGKmA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: ^19
+      react-dom: ^19
 
   '@floating-ui/core@1.8.0':
     resolution: {integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==}
@@ -1154,6 +1171,11 @@ packages:
       react-redux:
         optional: true
 
+  '@remixicon/react@4.9.0':
+    resolution: {integrity: sha512-5/jLDD4DtKxH2B4QVXTobvV1C2uL8ab9D5yAYNtFt+w80O0Ys1xFOrspqROL3fjrZi+7ElFUWE37hBfaAl6U+Q==}
+    peerDependencies:
+      react: '>=18.2.0'
+
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
@@ -1533,6 +1555,9 @@ packages:
 
   '@workflow/serde@4.1.0':
     resolution: {integrity: sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ==}
+
+  '@zumer/snapdom@3.2.0':
+    resolution: {integrity: sha512-FVYVoH3XXJdgFfZo6VxEX6DZ5XWNlYypMynOLKKFTa0XEZBMOVSQBVDHO66uIcK9q7yuYMyyAb5/KaMYsHIuxg==}
 
   accepts@2.0.0:
     resolution: {integrity: sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng==}
@@ -4728,6 +4753,24 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
+  '@fastbackr/core@0.0.4':
+    dependencies:
+      '@zumer/snapdom': 3.2.0
+
+  '@fastbackr/react@0.0.4(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@base-ui/react': 1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@fastbackr/core': 0.0.4
+      '@remixicon/react': 4.9.0(react@19.2.8)
+      class-variance-authority: 0.7.1
+      cn: 0.4.0
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+    transitivePeerDependencies:
+      - '@date-fns/tz'
+      - '@types/react'
+      - date-fns
+
   '@floating-ui/core@1.8.0':
     dependencies:
       '@floating-ui/utils': 0.2.12
@@ -5129,6 +5172,10 @@ snapshots:
       react: 19.2.8
       react-redux: 9.3.0(@types/react@19.3.0)(react@19.2.8)(redux@5.0.1)
 
+  '@remixicon/react@4.9.0(react@19.2.8)':
+    dependencies:
+      react: 19.2.8
+
   '@rtsao/scc@1.1.0': {}
 
   '@sec-ant/readable-stream@0.4.1': {}
@@ -5478,6 +5525,8 @@ snapshots:
   '@vercel/oidc@3.2.0': {}
 
   '@workflow/serde@4.1.0': {}
+
+  '@zumer/snapdom@3.2.0': {}
 
   accepts@2.0.0:
     dependencies:

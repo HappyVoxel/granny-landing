@@ -1,3 +1,6 @@
 allowBuilds:
   sharp: false
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  - '@fastbackr/core@0.0.4'
+  - '@fastbackr/react@0.0.4'

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import { FastbackrProvider } from "@fastbackr/react";
 import { cn } from "@/lib/utils";
 import ogImage from "@/assets/og.png";
 
@@ -57,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-sans">
         <div aria-hidden className="paper-grain" />
-        {children}
+        <FastbackrProvider>{children}</FastbackrProvider>
       </body>
     </html>
   );
